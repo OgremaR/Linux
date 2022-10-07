@@ -1,0 +1,52 @@
+- netstat -an - информация об всех подключениях и открытых портах
+- nmap sT -T 5 -p 1-5000 localhost - проверка всех открытых портов
+- sudo lsof -i -P - проверка всех открытых портов
+- ufw allow 22 - открытие 22 порта
+- lspci - вывод PCI устройств
+- sudo dmesg | grep eth - буфер сообщений с ядра
+- apt install net-tools - ifconfig, netstat  и т.д.
+- traceroute
+- ip -4 a
+- ip r - список путей маршрута
+- ip route add 192.168.0.252/24 dev eth0 - назначить шлюз
+- ip link ls up - список интерфейсов
+- ip a add 192.168.0.9/24 dev etho - присвоение интерфейсу ip
+- curl -I ya.ru - информация от веб-сервера
+- du -h -d1 | sort -h - отфильтрованный по возрастанию каталог.
+- sudo lshw -C network - узнать интерфейс
+- Конфигурация DNS Linux:
+/etc/resolv.conf
+	nameserver 172.172.172.253
+	search r1.gk21.ru
+- Имя компьютера:
+/etc/hostname
+- VIM Удалите первые 2 символа каждой строки - :%normal 2x
+- iperf - утилита отслеживания производительности сети.
+На одном ПК запускаем iperf -s, на втором iperf -c ip-адрес первого.
+- tcpdump и wireshark - анализаторы по сбору трафика.
+- /etc/resolv.conf - клиентская часть системы DNS
+- dig r1.gk21.ru any/или soa - инструмент запросов DNS
+- Почта Алиасы - /etc/mail/aliases или /etc/aliases
+- service --status-all
+- df -h и lsblk - информация о дисках
+- testdisk - восстановление файлов/каталогов
+- mkfs.ntfs -f /dev/sdb1 - форматировать раздел
+- /etc/fstab - добавляем новый диск
+- mount /media/hdd2 - присоединяет диск прописанный в файле fstab с именем hdd2
+- dpkg -i ****.deb - установка пакета
+	  -I ****.deb - информация
+	  -l | grep python  - список имеющихся пакетов в системе
+	  -r python - удалить пакет
+	  -P python - удаление конфигураций связанных с пакетом
+- apt purge python - удаление со всеми его данными
+- apt install пакет -s - посмотреть результат если установить его
+- apt search имя_для_поиска
+- apt show пакет
+- apt-mark hold пакет - фиксация версии пакета
+- /etc/environment -
+	https_proxy="http://172.172.180.40:3128/" 
+	http_proxy="http://172.172.180.40:3128/" 
+	ftp_proxy="ftp://172.172.180.40:3128/" 
+	#socks_proxy="socks://user:pass@proxy:port/" 
+	no_proxy="localhost,172.172.*.*,gk21.ru"
+- Всё что будет храниться в /home/ при создании нового user - /etc/skel/
